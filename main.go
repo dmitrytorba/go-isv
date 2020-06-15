@@ -4,16 +4,13 @@ import (
     "fmt"
     "net/http"
     "log"
+    "github.com/dmitrytorba/go-isv/handlers"
 )
-
-func login(w http.ResponseWriter, r *http.Request) {
-    fmt.Fprintf(w, "Login here\n")
-}
 
 func createHandler() http.Handler {
     mux := http.NewServeMux()
 
-    mux.HandleFunc("/login", login)
+    mux.HandleFunc("/login", handlers.Login)
 
     return mux
 }
